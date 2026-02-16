@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voce Landana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+    body{font-family:'Cinzel',serif;background:#faf7f2;color:#2c1e1e}
+
+    header{position:sticky;top:0;z-index:1000;background:rgba(250,247,242,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(212,175,55,.3);padding:15px 40px;display:flex;justify-content:space-between;align-items:center}
+    .logo-area{display:flex;align-items:center;gap:15px}
+        .logo{width:55px;height:55px;border:2px solid #d4af37;border-radius:50%;display:flex;align-items:center;justify-content:center;color:transparent;font-weight:bold;background-color:#fff;overflow:hidden}
+            .logo{background-image: url('./images/logo.jpeg'), url('./images/logo.svg');
+          background-size: cover, contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+    nav a{text-decoration:none;margin-left:25px;font-size:14px;color:#2c1e1e;transition:.5s}
+    nav a:hover{color:#b48a2c;letter-spacing:2px}
+
+    section{padding:110px 20px;text-align:center}
+
+    /* HERO PREMIUM */
+    .hero{
+      /* Use a local image placed at ./images/hero.jpg (create the folder and add your photo there).
+         A fallback `hero.svg` is provided so the hero area shows immediately if `hero.jpg` is missing. */
+      background-image: url('./images/hero.jpg'), url('./images/hero.svg');
+      background-position: center, center;
+      background-size: cover, cover;
+      background-repeat: no-repeat, no-repeat;
+      color: white;
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(to bottom,rgba(0,0,0,.75),rgba(0,0,0,.6));
+    }
+    .hero-content{position:relative;z-index:2}
+    .hero h1{font-size:52px;letter-spacing:6px;margin-bottom:20px}
+    .hero p{color:#f1e4c3}
+
+    h2{font-size:34px;margin-bottom:50px;letter-spacing:4px}
+
+    .container{max-width:1000px;margin:auto}
+
+    .card{background:white;padding:35px;border-radius:15px;border:1px solid rgba(212,175,55,.2);box-shadow:0 5px 15px rgba(0,0,0,.08);transition:.5s}
+    .card:hover{transform:scale(1.03);box-shadow:0 20px 35px rgba(0,0,0,.18);border-color:#d4af37}
+
+    .grid{display:grid;gap:25px}
+    .grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+
+    .concert-buttons button{padding:10px 25px;margin:10px;background:white;border:1px solid rgba(212,175,55,.4);border-radius:30px;cursor:pointer;transition:.5s;font-family:'Cinzel',serif}
+    .concert-buttons button:hover{transform:scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,.15);border-color:#d4af37}
+
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:40px}
+    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:15px;border:1px solid rgba(212,175,55,.2);transition:.5s;box-shadow:0 5px 15px rgba(0,0,0,.1)}
+    .gallery img:hover{transform:scale(1.05);box-shadow:0 20px 35px rgba(0,0,0,.25);border-color:#d4af37}
+
+    .admin-section{background:#f1ebe2;border-top:1px solid rgba(212,175,55,.3)}
+    input[type="password"],input[type="file"]{padding:10px;width:250px;margin:10px;border-radius:8px;border:1px solid #ccc}
+    .btn{padding:10px 20px;background:#3a1f1f;color:#f5efe6;border:none;border-radius:25px;cursor:pointer;transition:.5s;font-family:'Cinzel',serif}
+    .btn:hover{background:black;transform:scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,.3)}
+
+    footer{padding:30px;text-align:center;border-top:1px solid rgba(212,175,55,.3);font-size:14px;color:#6b4f3b}
+
+    /* FADE IN ANIMATION */
+    .fade{opacity:0;transform:translateY(40px);transition:1s ease}
+    .fade.show{opacity:1;transform:translateY(0)}
+
+    .conductor-img{width:200px;height:260px;object-fit:cover;border-radius:10px;border:2px solid #d4af37;margin-bottom:20px}
+    /* Social icons in Connect section */
+    .social-icons{display:flex;gap:16px;align-items:center;justify-content:center;margin-top:12px}
+    .social-icons a{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;text-decoration:none;color:inherit;border:1px solid transparent;transition:all .18s}
+    .social-icons a:hover{background:rgba(212,175,55,.06);border-color:rgba(212,175,55,.25);transform:translateY(-3px)}
+    .social-icons svg{width:28px;height:28px;display:block}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-area">
+    <div class="logo">LOGO</div>
+    <h3>Voce Landana</h3>
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="journeyinmusic.html" target="_blank">Achievement</a>
+    <a href="#concert">Concert</a>
+    <a href="#conductor">Conductor</a>
+    <a href="#connect">Connect</a>
+    <a href="#admin">Admin</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-content fade">
+    <h1>VOCE LANDANA</h1>
+    <p>Let's make music and have fun</p>
+  </div>
+</section>
+
+<section id="about" class="fade">
+  <h2>About Us</h2>
+  <div class="container card">
+    <p>Voce Landana merupakan ekstrakurikuler paduan suara SMA Negeri 3 Jakarta yang berdiri sejak 2 Desember 2016 dan 
+        saat ini berada di bawah bimbingan Gerard Giovanni Pakasi. Sejak awal perjalanannya, Voce Landana tumbuh sebagai 
+        wadah ekspresi seni, prestasi, dan kebersamaan bagi para siswanya. Dikenal dengan harmoni suara yang khas dan energi 
+        muda yang segar, Voce Landana aktif tampil dalam berbagai konser, kompetisi, serta menjalin kolaborasi dengan beragam pihak.
+Hingga saat ini, Voce Landana telah berhasil menggelar tiga konser tahunan yang mendapat sambutan hangat, serta berpartisipasi dalam tiga 
+kompetisi paduan suara nasional dan internasional yang menorehkan pencapaian berharga. Dengan jumlah anggota kurang lebih 50 siswa, 
+Voce Landana terdiri dari empat pembagian suara utama, yaitu Sopran, Alto, Tenor, dan Bass yang berpadu membentuk harmoni seimbang dan penuh warna. Didukung semangat muda yang berapi-api dan profesionalisme yang terus diasah, Voce Landana berkomitmen untuk menghadirkan karya musikal berkualitas, memperluas jangkauan apresiasi seni, sekaligus. menjadi bagian dari perkembangan dunia paduan suara di Indonesia.</p>
+  </div>
+</section>
+
+<section id="achievement" class="fade">
+  <h2>Achievements</h2>
+  <div class="container grid grid-3">
+    <div class="card">3rd Winner of Senior High School Category - Gold Medal with total score 82,79 at the 3rd Jakarta National Choral Festival 2023 (JNCC)C</div>
+    <div class="card">Winner of Youth Category Medal with total score 83,10 & Gold Medal in Folklore Category with total score 82,30 at the 4th Internasional Bandung Choral Festival 2024 (IBCF)</div>
+    <div class="card">3rd Winner of Mixed Youth Category Gold Medal with total score 86,36 at the 1st Jakarta International Choral Festival 2025 (JICF)</div>
+  </div>
+</section>
+
+<section id="concert" class="fade">
+  <h2>Concert & Documentation</h2>
+  <div class="concert-buttons">
+    <button onclick="window.open('journeyinmusic.html','_blank')">1st Concert</button>
+    <button onclick="window.open('truecolors.html','_blank')">2nd Concert</button>
+    <button onclick="window.open('seandainya.html','_blank')">3rd Concert</button>
+  </div>
+  <div id="concert1" class="gallery"></div>
+  <div id="concert2" class="gallery" style="display:none"></div>
+  <div id="concert3" class="gallery" style="display:none"></div>
+</section>
+
+<section id="conductor" class="fade">
+  <h2>Conductor</h2>
+  <div class="container card">
+    <img src="gerrard.jpeg" class="conductor-img" alt="Foto Conductor Gerrard">
+    <p>Lahir pada tanggal 23 Juni 1992, memulai karir paduan suara saat bergabung dengan 78 Youth Choir di bawah bimbingan Jessica Fedora Amadea. Pada tahun 2010, Gerard bergabung dengan PARAMABIRA di bawah bimbingan Rainier Revireino. Bersama 78 Youth Choir dan PARAMABIRA, Gerard berpartisipasi dalam konser dan kompetisi di China, Itali dan Spanyol.
+
+Sebagai seorang penyanyi, Ia mendalami teknik olah vokal di Jakarta Conservatory of Music (JCOM) di bawah bimbingan salah satu bariton Indonesia, yaitu Rainier Revireino, dan kerap mengikuti beberapa master class conductor, yang diantaranya merupakan "Artistic Conducting" oleh Brady R. Allred, Salt Lake, Amerika dan beberapa master class lainnya oleh maestro Indonesia seperti Avip Priatna dan Aning Katamsi.
+
+Saat ini, Gerard dipercaya untuk menjadi Music Director & Conductor di Voce Landana (Paduan Suara SMAN 3 Jakarta) dan paduan suara lainnya. Bersamanya, paduan suara tersebut aktif melakukan berbagai konser dan kompetisi dalam tingkat nasional dan internasional.</p>
+  </div>
+</section>
+
+<section id="connect" class="fade">
+  <h2>Connect With Us</h2>
+  <div class="container card">
+    <p>Email: vocelandana@email.com</p>
+    <div class="social-icons" aria-label="Social media links">
+      <a href="https://www.instagram.com/vocelandana" target="_blank" rel="noopener noreferrer" title="Instagram @vocelandana">
+        <!-- Instagram SVG -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.2"></rect>
+          <path d="M16 11.99a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" stroke="currentColor" stroke-width="1.2" fill="none"></path>
+          <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor"></circle>
+        </svg>
+        <span>@vocelandana</span>
+      </a>
+
+      <a href="https://youtube.com/@vocelandana?si=yu9kEgfdH8NPFtKb" target="_blank" rel="noopener noreferrer" title="YouTube Voce Landana">
+        <!-- YouTube SVG -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M22 7.5a3 3 0 0 0-2.12-2.12C18.9 5 12 5 12 5s-6.9 0-7.88.38A3 3 0 0 0 2 7.5 31.3 31.3 0 0 0 2 16.5a3 3 0 0 0 2.12 2.12C5.1 19 12 19 12 19s6.9 0 7.88-.38A3 3 0 0 0 22 16.5 31.3 31.3 0 0 0 22 7.5z" stroke="currentColor" stroke-width="1.2" fill="none"></path>
+          <path d="M10 9.5l5 3-5 3v-6z" fill="currentColor"></path>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="admin" class="admin-section fade">
+  <h2>Admin Login</h2>
+  <input type="password" id="password" placeholder="Masukkan Password Admin">
+  <br>
+  <button class="btn" onclick="login()">Login</button>
+  <div id="upload-area" style="display:none;margin-top:20px;">
+    <input type="file" multiple onchange="uploadImages(event)">
+  </div>
+</section>
+
+<footer>
+  © 2026 Voce Landana Choir. All Rights Reserved.
+</footer>
+
+<script>
+  let isAdmin=false;
+  let activeConcert='concert1';
+
+  function showConcert(id){
+    document.getElementById('concert1').style.display='none';
+    document.getElementById('concert2').style.display='none';
+    document.getElementById('concert3').style.display='none';
+    document.getElementById(id).style.display='grid';
+    activeConcert=id;
+  }
+
+  function login(){
+    const pass=document.getElementById('password').value;
+    if(pass==='admin123'){
+      isAdmin=true;
+      alert('Login berhasil');
+      document.getElementById('upload-area').style.display='block';
+    } else alert('Password salah');
+  }
+
+  function uploadImages(event){
+    if(!isAdmin) return;
+    const files=event.target.files;
+    const gallery=document.getElementById(activeConcert);
+    for(let i=0;i<files.length;i++){
+      const img=document.createElement('img');
+      img.src=URL.createObjectURL(files[i]);
+      gallery.appendChild(img);
+    }
+  }
+
+  // Fade In on Scroll
+  const faders=document.querySelectorAll('.fade');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+      }
+    });
+  },{threshold:.2});
+  faders.forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
