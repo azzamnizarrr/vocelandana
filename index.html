@@ -7,7 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-    body{font-family:'Cinzel',serif;background:#faf7f2;color:#2c1e1e}
+    body{font-family:'Cinzel',serif;background:#faf7f2;color:#2c1e1e;padding:40px 8px;}
+    @media (max-width:600px) {
+      h1,h2{font-size:22px;}
+      .container,.card{padding:12px;}
+      .gallery,.grid,.grid-3{grid-template-columns:1fr;gap:10px;}
+      .concert-buttons button{padding:8px 12px;font-size:15px;}
+      img{border-radius:8px;}
+      section{padding:40px 8px;}
+    }
 
     header{position:sticky;top:0;z-index:1000;background:rgba(250,247,242,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(212,175,55,.3);padding:15px 40px;display:flex;justify-content:space-between;align-items:center}
     .logo-area{display:flex;align-items:center;gap:15px}
@@ -92,7 +100,7 @@
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
-    <a href="journeyinmusic.html" target="_blank">Achievement</a>
+    <a href="#achievement">Achievement</a>
     <a href="#concert">Concert</a>
     <a href="#conductor">Conductor</a>
     <a href="#connect">Connect</a>
@@ -240,4 +248,5 @@ Saat ini, Gerard dipercaya untuk menjadi Music Director & Conductor di Voce Land
 
 </body>
 </html>
+
 
