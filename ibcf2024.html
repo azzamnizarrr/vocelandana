@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IBCF 2024 Documentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Cinzel',serif;background:#faf7f2;color:#2c1e1e;padding:40px 12px}
+    h1{color:#b48a2c;margin-bottom:10px;letter-spacing:2px}
+    p{opacity:.9;max-width:900px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
+    img,video{width:100%;border-radius:12px;box-shadow:0 2px 12px #0001;object-fit:cover;background:#fff}
+    .back{display:inline-block;margin-top:18px;text-decoration:none;color:#2c1e1e}
+    .back:hover{color:#b48a2c}
+    .hint{margin-top:10px;font-size:14px;color:#6b4f3b}
+    .status{margin-top:10px;font-size:14px;color:#6b4f3b}
+    code{background:#fff;border:1px solid rgba(212,175,55,.25);padding:2px 6px;border-radius:8px}
+    @media (max-width:900px){
+      body{padding:26px 10px}
+      h1{font-size:22px}
+    }
+  </style>
+</head>
+<body>
+  <h1>IBCF 2024</h1>
+  <p>Winner of Youth Category &amp; Gold Medal. Halaman ini memuat dokumentasi dari folder <b><span id="folder-name">ibcf2024</span>/</b>.</p>
+  <p class="hint">Daftar file diambil dari <code><span id="manifest-name">ibcf2024/manifest.json</span></code>.</p>
+  <p class="status" id="status"></p>
+
+  <div class="grid" id="docs-grid"></div>
+
+  <a class="back" href="index.html#achievement">&larr; Kembali ke Achievements</a>
+
+  <script>
+    (function () {
+      const page = (location.pathname.split('/').pop() || '').trim();
+      const slug = page ? page.replace(/\.html$/i, '') : 'ibcf2024';
+
+      const folderNameEl = document.getElementById('folder-name');
+      const manifestNameEl = document.getElementById('manifest-name');
+      const grid = document.getElementById('docs-grid');
+      const status = document.getElementById('status');
+
+      if (folderNameEl) folderNameEl.textContent = slug;
+      if (manifestNameEl) manifestNameEl.textContent = `${slug}/manifest.json`;
+
+      function setStatus(msg) {
+        if (status) status.textContent = msg;
+      }
+
+      function isVideo(file) {
+        return /\.(mp4|webm|ogg)$/i.test(file);
+      }
+
+      function addMedia(file) {
+        if (!file) return;
+        const src = `${slug}/${encodeURIComponent(file)}`;
+
+        if (isVideo(file)) {
+          const v = document.createElement('video');
+          v.src = src;
+          v.controls = true;
+          v.preload = 'metadata';
+          grid.appendChild(v);
+          return;
+        }
+
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = file;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        grid.appendChild(img);
+      }
+
+      async function load() {
+        const url = `${slug}/manifest.json`;
+        setStatus(`Memuat: ${url} ...`);
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const list = await res.json();
+
+          if (!Array.isArray(list) || list.length === 0) {
+            setStatus(`Manifest kosong. Isi ${url} dengan daftar file.`);
+            return;
+          }
+
+          list.forEach(addMedia);
+          setStatus('');
+        } catch (e) {
+          setStatus(`Gagal memuat ${url}. Buka lewat server (Live Server) dan pastikan manifest ada.`);
+        }
+      }
+
+      load();
+    })();
+  </script>
+</body>
+</html>
