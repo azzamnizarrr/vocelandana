@@ -159,6 +159,42 @@
     .grid{display:grid;gap:25px}
     .grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
 
+    .about-layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+      gap:24px;
+      align-items:center;
+      margin-top:24px;
+    }
+    .about-layout img{
+      width:100%;
+      max-width:260px;
+      justify-self:center;
+      border-radius:14px;
+      border:2px solid #d4af37;
+      box-shadow:0 10px 26px rgba(0,0,0,.18);
+      object-fit:cover;
+    }
+    .about-layout h3{
+      font-size:22px;
+      letter-spacing:2px;
+      margin-bottom:8px;
+    }
+    .about-layout p{
+      text-align:left;
+      line-height:1.6;
+    }
+
+    @media (max-width:900px){
+      .about-layout{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+      .about-layout p{
+        text-align:center;
+      }
+    }
+
     /* 5. GALLERY & BUTTONS */
     .concert-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:12px}
     /* tombol konser memakai <a class="btn"> */
@@ -216,7 +252,14 @@
 <section id="about" class="fade">
   <h2>About Us</h2>
   <div class="container card">
-    <p>Voce Landana merupakan ekstrakurikuler paduan suara SMA Negeri 3 Jakarta yang berdiri sejak 2 Desember 2016. Dikenal dengan harmoni suara yang khas dan energi muda yang segar, Voce Landana aktif tampil dalam berbagai konser, kompetisi, serta menjalin kolaborasi dengan beragam pihak.</p>
+    <p>Voce Landana adalah ekstrakurikuler paduan suara SMA Negeri 3 Jakarta yang berdiri sejak 2 Desember 2016 dan kini dipimpin oleh Gerard Giovanni Pakasi. Dengan formasi lengkap (Sopran, Alto, Tenor, Bass) yang beranggotakan sekitar 50 siswa, kelompok ini dikenal melalui harmoni khas dan energi mudanya yang telah menghasilkan dua konser tahunan serta prestasi di tiga kompetisi tingkat nasional maupun internasional. Sebagai wadah ekspresi dan prestasi, Voce Landana berkomitmen terus menghadirkan karya musikal berkualitas guna berkontribusi bagi perkembangan dunia paduan suara di Indonesia.</p>
+  </div>
+  <div class="container card about-layout" style="margin-top:30px;">
+    <div>
+      <h3>Gerard Giovanni Pakasi</h3>
+      <p>Gerard Giovanni Pakasi (lahir 1992) adalah Music Director dan konduktor lulusan Jakarta Conservatory of Music yang berpengalaman di kancah internasional (China, Italia, Spanyol). Di bawah bimbingan maestro seperti Avip Priatna dan Brady R. Allred, ia kini memimpin Voce Landana (SMAN 3 Jakarta) dan berbagai paduan suara lainnya untuk mencetak prestasi di tingkat nasional maupun global.</p>
+    </div>
+    <img src="./gerrard.jpeg" alt="Conductor Voce Landana - Gerrard" onerror="this.onerror=null;this.src='./images/gerrard.jpeg';">
   </div>
 </section>
 
